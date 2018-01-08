@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'AaFangMeng';
+  src: url('AaFangMeng.woff') format('woff'),
+       url('AaFangMeng.ttf') format('truetype'),
+       url('AaFangMeng.svg#AaFangMeng') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: '字体管家方萌';
+  src: url('字体管家方萌.eot');
+  src: url('字体管家方萌.woff2') format('woff2'),
+       url('字体管家方萌.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
