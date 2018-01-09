@@ -214,8 +214,8 @@
             if(data.user){
                 $('html,body').animate({scrollTop:0},'slow');
                 $("#save").hide();
-                $("#shareImg").hide();
-                $("#showShare").show();
+//                    $("#shareImg").hide();
+//                    $("#showShare").show();
                 $("#userName").html('<img src="'+data.user.avatar+'" alt="" id="userHeadpoirt">'+
                     '<p class="yellow p-text">'+data.user.username+'</p>');
                 let joinFirstInfo = '';
@@ -448,13 +448,13 @@
         $("#save").show();
         $("#save > a").attr("href",dataImg);
         $("#save > img").attr("src",dataImg);
-        var image = new Image();
-        image.src = dataImg;
-        image.onload  = ()=>{
-            $("#shareImg").html(image);
-            $("#shareImg").show();
-            $("#showShare").hide();
-        };
+//            var image = new Image();
+//            image.src = dataImg;
+//            image.onload  = ()=>{
+//                $("#shareImg").html(image);
+//                $("#shareImg").show();
+//                $("#showShare").hide();
+//            };
     }
 
 </script>
