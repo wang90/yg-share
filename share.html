@@ -142,7 +142,7 @@
         </div>
     </div>
     <div id = "shareImg">
-        <img src="" alt="">
+        <!--<img src="" alt="">-->
     </div>
     <div class="item makeTable">
         <div class="button black" onclick="openSearch(2);">
@@ -447,11 +447,13 @@
         var dataImg = canvas.toDataURL('image/png');
         $("#save").show();
         $("#save > a").attr("href",dataImg);
-        $("#shareImg >img").attr("src",dataImg);
-        setTimeout(()=>{
+        var image = new Image();
+        image.src = dataImg;
+        image.onload  = ()=>{
+            $("#shareImg").html(image);
             $("#shareImg").show();
             $("#showShare").hide();
-        },500);
+        };
     }
 
 </script>
