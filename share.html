@@ -447,6 +447,7 @@
         var dataImg = canvas.toDataURL('image/png');
         $("#save").show();
         $("#save > a").attr("href",dataImg);
+        $("#save > img").attr("src",dataImg);
         var image = new Image();
         image.src = dataImg;
         image.onload  = ()=>{
