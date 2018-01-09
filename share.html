@@ -404,11 +404,14 @@
         });
     }
     function getImg() {
+//            if($("#canvas")[0]){
+//                document.body.removeChild($("#canvas")[0]);
+//            }
         var canvas = $("#canvas")[0],
             url = canvas.toDataURL();
         url = url.replace("image/png", "image/octet-stream");
         saveImg(canvas);
-        document.body.removeChild($("#canvas")[0]);
+
     }
     function format(shijianchuo){
         //shijianchuo是整数，否则要parseInt转换
