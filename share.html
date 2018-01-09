@@ -403,7 +403,7 @@
         }).then(canvas => {
             canvas.setAttribute('id','canvas');
             document.body.appendChild(canvas);
-            $("#canvas").hide();
+//            $("#canvas").hide();
             getImg();
         });
     }
@@ -441,10 +441,10 @@
     function saveImg(canvas){
         var filename = '阳光'+ $("#userName >p").html() + '.png';
         saveFile(canvas.toDataURL(),filename);
-//        var image = new Image();
-//        image.src = canvas.toDataURL();
-//        $("#shareImg").html(image);
-//        $("#shareImg").show();
+        var image = new Image();
+        image.src = canvas.toDataURL();
+        $("#shareImg").html(image);
+        $("#shareImg").show();
     }
     function saveFile(data, filename){
         const save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
