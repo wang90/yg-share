@@ -398,7 +398,8 @@
     function changeImg() {
         console.log("转化图片");
         html2canvas(document.querySelector("#showShare"),{
-            useCORS: true
+            useCORS: true,
+            height: $("#showShare").outerHeight()
         }).then(canvas => {
             canvas.setAttribute('id','canvas');
             document.body.appendChild(canvas);
@@ -407,9 +408,6 @@
         });
     }
     function getImg() {
-//            if($("#canvas")[0]){
-//
-//            }
         var canvas = $("#canvas")[0],
             url = canvas.toDataURL();
         url = url.replace("image/png", "image/octet-stream");
