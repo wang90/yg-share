@@ -215,8 +215,8 @@
                 $('html,body').animate({scrollTop:0},'slow');
                 $("#save").hide();
                 const html = '';
-                $("#shareImg").html(html);
-                $("#shareImg").hide();
+//                $("#shareImg").html(html);
+//                $("#shareImg").hide();
                 $("#userName").html('<img src="'+data.user.avatar+'" alt="" id="userHeadpoirt">'+
                     '<p class="yellow p-text">'+data.user.username+'</p>');
                 let joinFirstInfo = '';
@@ -399,18 +399,19 @@
         }).then(canvas => {
             canvas.setAttribute('id','canvas');
             document.body.appendChild(canvas);
-//                    $("#canvas").hide();
+            $("#canvas").hide();
             getImg();
         });
     }
     function getImg() {
 //            if($("#canvas")[0]){
-//                document.body.removeChild($("#canvas")[0]);
+//
 //            }
         var canvas = $("#canvas")[0],
             url = canvas.toDataURL();
         url = url.replace("image/png", "image/octet-stream");
         saveImg(canvas);
+        document.body.removeChild($("#canvas")[0]);
 
     }
     function format(shijianchuo){
@@ -439,10 +440,10 @@
     function saveImg(canvas){
         var filename = '阳光'+ $("#userName >p").html() + '.png';
         saveFile(canvas.toDataURL(),filename);
-        var image = new Image();
-        image.src = canvas.toDataURL();
-        $("#shareImg").html(image);
-        $("#shareImg").show();
+//        var image = new Image();
+//        image.src = canvas.toDataURL();
+//        $("#shareImg").html(image);
+//        $("#shareImg").show();
     }
     function saveFile(data, filename){
         const save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
