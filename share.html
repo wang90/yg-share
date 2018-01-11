@@ -222,6 +222,7 @@
         let url = window.location.href;
         g_url = url;
         g_title = '阳光大数据';
+        getWxSignature();
         if(url.indexOf("#")>-1){
             let urlHash = window.location.hash.slice(1);
             getHttp(urlHash);
@@ -386,7 +387,7 @@
                 alertJoin += '<p class="write p-text">你与阳光，共赴新的精彩</p>';
                 $("#alertJoin").html(alertJoin);
                 canScroll();
-                getWxSignature();
+                getWxconfig();
             }else{
                 $('#noSearchBox').show();
                 stopScroll();
@@ -403,17 +404,7 @@
             initWxConfig(data);
         });
     }
-    function initWxConfig(data){
-        console.log(data);
-        wx.config({
-            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-            appId: data["appid"], // 必填，公众号的唯一标识
-            timestamp: data["timestamp"], // 必填，生成签名的时间戳
-            nonceStr: data["nonce"], // 必填，生成签名的随机串
-            signature: data["signature"],// 必填，签名，见附录1
-            jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-        });
-
+    function getWxconfig(){
         wx.ready(function(){
             console.log("wx ready");
             //share moments
@@ -476,11 +467,22 @@
 
 
         });
-
         wx.error(function(res){
             console.log("wx error");
             console.log(res);
         });
+    }
+    function initWxConfig(data){
+        console.log(data);
+        wx.config({
+            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: data["appid"], // 必填，公众号的唯一标识
+            timestamp: data["timestamp"], // 必填，生成签名的时间戳
+            nonceStr: data["nonce"], // 必填，生成签名的随机串
+            signature: data["signature"],// 必填，签名，见附录1
+            jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+        getWxconfig();
     }
     //现实搜索
     function openSearch(type) {
