@@ -251,7 +251,7 @@
                     '<p class="yellow p-text">'+data.user.username+'</p>');
                 let joinFirstInfo = '';
                 joinFirstInfo += '<p class="write p-html tl">Hi,亲爱的阳光er,</p>';
-                joinFirstInfo += ' <p class="write p-html tl">欢迎进入阳光回忆之旅！</p>';
+                joinFirstInfo += '<p class="write p-html tl">欢迎进入阳光回忆之旅！</p>';
                 if(data.user.regdate_timestamp){
                     joinFirstInfo += '<p class="yellow p-html tl">'+format(data.user.regdate_timestamp)+'</p>';
                     joinFirstInfo += '<p class="write p-html tl">你注册了论坛，加入了阳光大家庭！</p>';
@@ -397,8 +397,8 @@
 
     //获取微信签名信息
     function getWxSignature(){
-//        var url = window.location.href;
-        var url = "https://squirrelrao.com/ygShare/share.html";
+         var url = window.location.href.split("#")[0];
+//        var url = "https://squirrelrao.com/ygShare/share.html";
         $.get('https://squirrelrao.com/v1/get_token?url='+url,function(data,status){
             console.log(status+"-"+data);
             initWxConfig(data);
@@ -464,8 +464,6 @@
                     // 用户取消分享后执行的回调函数
                 }
             });
-
-
         });
         wx.error(function(res){
             console.log("wx error");
