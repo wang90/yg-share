@@ -216,6 +216,7 @@
     let g_url = "";
     let g_title = '';
     const g_imgurl = 'https://squirrelrao.com/ygShare/image/logo.jpg';
+    let g_name = '';
 
     window.onload = function () {
         console.log('加载');
@@ -244,6 +245,7 @@
                 hasArealday = hasArealday/(60*60*24);
                 g_title = data.user.username + '在阳光玩耍了'+ hasArealday+'天，公益支教超过'+data.detail.time.ygkt_hour+'小时';
                 console.log(g_title);
+                g_name = '#'+data.user.username;
                 $('html,body').animate({scrollTop:0},'slow');
                 $("#save").hide();
                 const html = '';
@@ -404,6 +406,9 @@
             initWxConfig(data);
         });
     }
+    function shareOk() {
+        window.location.href = 'https://squirrelrao.com/ygShare/share.html'+g_name;
+    }
     function getWxconfig(){
         wx.ready(function(){
             console.log("wx ready");
@@ -414,6 +419,7 @@
                 imgUrl: g_imgurl, // 分享图标
                 success: function () {
                     // 用户确认分享后执行的回调函数
+                    shareOk();
                 },
                 cancel: function () {
                     // 用户取消分享后执行的回调函数
@@ -426,44 +432,12 @@
                 imgUrl:g_imgurl, // 分享图标
                 success: function () {
                     // 用户确认分享后执行的回调函数
+                    shareOk();
                 },
                 cancel: function () {
                     // 用户取消分享后执行的回调函数
                 }
-            });
-            wx.onMenuShareQQ({
-                title: g_title, // 分享标题
-                link: g_url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                imgUrl: g_imgurl, // 分享图标
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                },
-                cancel: function () {
-                    // 用户取消分享后执行的回调函数
-                }
-            });
-            wx.onMenuShareQZone({
-                title: g_title, // 分享标题
-                link: g_url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                imgUrl: g_imgurl, // 分享图标
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                },
-                cancel: function () {
-                    // 用户取消分享后执行的回调函数
-                }
-            });
-            wx.onMenuShareWeibo({
-                title: g_title, // 分享标题
-                link: g_url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                imgUrl:g_imgurl, // 分享图标
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                },
-                cancel: function () {
-                    // 用户取消分享后执行的回调函数
-                }
-            });
+            })
         });
         wx.error(function(res){
             console.log("wx error");
