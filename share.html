@@ -398,7 +398,7 @@
 
     //获取微信签名信息
     function getWxSignature(){
-        var url = "https://squirrelrao.com/ygShare/share.html";
+        var url = window.location.href;
         $.get('https://squirrelrao.com/v1/get_token?url='+url,function(data,status){
             console.log(status+"-"+data);
             initWxConfig(data);
