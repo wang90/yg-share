@@ -218,7 +218,6 @@
 
     window.onload = function () {
         console.log('加载');
-        getWxSignature();
         let url = window.location.href;
         g_url = url;
         g_title = '阳光大数据';
@@ -243,6 +242,7 @@
                 hasArealday = hasArealday/(60*60*24);
                 console.log(hasArealday);
                 g_title = data.user.username + '在阳光玩耍了'+ hasArealday+'天，公益支教超过'+data.detail.time.ygkt_hour+'小时';
+                console.log(g_title);
                 $('html,body').animate({scrollTop:0},'slow');
                 $("#save").hide();
                 const html = '';
@@ -385,6 +385,7 @@
                 alertJoin += '<p class="write p-text">你与阳光，共赴新的精彩</p>';
                 $("#alertJoin").html(alertJoin);
                 canScroll();
+                getWxSignature();
             }else{
                 $('#noSearchBox').show();
                 stopScroll();
