@@ -8,8 +8,14 @@
 网站http://html2canvas.hertzen.com/    
 
 ``````
-// 主要功能
+// 主要功能实现
 
+// html
+<div id="showShare">
+...
+</div>
+
+// javascript
 html2canvas(document.querySelector("#showShare"),{
     useCORS: true,
     height: $("#showShare").outerHeight()
