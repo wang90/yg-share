@@ -9,6 +9,7 @@
 
 ``````
 // 主要功能
+
 html2canvas(document.querySelector("#showShare"),{
     useCORS: true,
     height: $("#showShare").outerHeight()
