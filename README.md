@@ -1,6 +1,6 @@
-## 阳光志愿者数据统计年度总结h5分享页面
+# 阳光志愿者数据统计年度总结h5分享页面
 
-利用 Discuz数据统计参与活动链接shengchengapi  
+利用 Discuz数据统计参与活动链接生成api  
 
 #### 前端：jquery + html2canvas.js
 实现方式   
